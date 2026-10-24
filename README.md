@@ -96,7 +96,7 @@ content-type: application/json
 插件包已经是一个可直接加载的 bundle（`package.json` 的 `dsh.bundle.patch` + `dsh.client`），Host 半边 `lib/index.js` / `lib/core.js`、浏览器半边 `lib/client.js` 都是最终产物，无需构建。
 
 ```powershell
-cd D:\DSworkspace\plugins\file-cleanup
+cd <本目录的绝对路径>
 $node = "$env:DSH_HOME\dsh-runtimes\dsh-primary-runtime\dependencies\node\bin\node.exe"
 & $node .\install.mjs --dry-run
 & $node .\install.mjs                 # 默认 desktop profile，可加 --profile <name>
@@ -108,7 +108,7 @@ $node = "$env:DSH_HOME\dsh-runtimes\dsh-primary-runtime\dependencies\node\bin\no
 
 ```powershell
 cd $env:DSH_HOME\profiles\desktop
-pnpm add file:D:/DSworkspace/plugins/file-cleanup
+pnpm add file:<本目录的绝对路径>
 ```
 
 然后把 `file-cleanup` 加进 profile `package.json` 的 `dsh.profile.bundles`。
@@ -185,7 +185,7 @@ Host 半边的模块由 Cordis Loader 走 ESM 缓存，profile 的 `hmr.config.r
 - 扫完没有垃圾时，确认框不再给「开始清理」，改为一个绿色的「完成」按钮；风险提示与清单一并隐藏。
 - 「风险提示」标题改为黄色（`--dsw-alias-state-warn-primary`），跟下面的正文区分开。
 - 顺手把插件自己的 css 里写错的告警色变量名（`--dsw-alias-state-warn-label`，主题里没有这个 token，一直在吃 fallback）改成真实存在的 `--dsw-alias-state-warn-primary`。
-- README 的安装示例路径跟着插件目录搬家更新为 `D:\DSworkspace\plugins\file-cleanup`。
+- README 的安装示例不再写死具体目录，改为 `<本目录的绝对路径>` 占位符。
 
 **v1.0.0**
 
