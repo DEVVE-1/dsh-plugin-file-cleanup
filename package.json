@@ -1,7 +1,16 @@
 {
   "name": "file-cleanup",
   "version": "1.3.0",
-  "private": true,
+  "repository": "git+https://github.com/DEVVE-1/dsh-plugin-file-cleanup.git",
+  "keywords": [
+    "dsh",
+    "deepseek-harness",
+    "dsh-plugin",
+    "cordis",
+    "cleanup",
+    "disk",
+    "temp-files"
+  ],
   "license": "MIT",
   "description": "左上角「文件清理」按钮：选「所有工作区」或「DSH_HOME」，二次确认后只删白名单内的垃圾文件，绝不越过所选范围。",
   "type": "module",
